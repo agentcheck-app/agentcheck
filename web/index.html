@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgentCheck — Daily Check-In for Agent ID Holders</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: #0b0e14; color: #e6e9ef; min-height: 100vh;
+    display: flex; justify-content: center; padding: 32px 16px;
+  }
+  main { width: 100%; max-width: 560px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  .subtitle { color: #9aa4b2; margin: 0 0 24px; font-size: 15px; }
+  .card {
+    background: #12161f; border: 1px solid #232a38; border-radius: 12px;
+    padding: 18px; margin-bottom: 16px;
+  }
+  .label { color: #9aa4b2; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px; }
+  .value { font-size: 15px; word-break: break-all; }
+  .handle { font-size: 20px; font-weight: 600; color: #7dd3a8; }
+  .badge-ok { color: #7dd3a8; font-weight: 600; }
+  .badge-no { color: #e0a458; font-weight: 600; }
+  button {
+    background: #2f6fed; color: #fff; border: 0; border-radius: 8px;
+    padding: 11px 18px; font-size: 15px; cursor: pointer; width: 100%;
+  }
+  button:disabled { background: #2a3242; color: #7c8698; cursor: not-allowed; }
+  button.secondary { background: #1c2330; border: 1px solid #2c3547; margin-top: 10px; }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stat .num { font-size: 24px; font-weight: 700; }
+  .stat .cap { color: #9aa4b2; font-size: 13px; }
+  #status { min-height: 20px; font-size: 14px; color: #c8d2e0; margin-top: 12px; }
+  .note { color: #9aa4b2; font-size: 13px; line-height: 1.5; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<main>
+  <h1>AgentCheck</h1>
+  <p class="subtitle">Daily Check-In for Agent ID Holders — on BNB Chain</p>
+
+  <div class="card">
+    <div class="label">Wallet</div>
+    <div class="value" id="address">Not connected</div>
+    <div style="height:12px"></div>
+    <button id="connectBtn">Connect Wallet</button>
+    <div id="status"></div>
+  </div>
+
+  <div class="card hidden" id="agentCard">
+    <div class="label">Your Agent ID</div>
+    <div class="handle" id="handle">—</div>
+    <div class="value" id="holderStatus">Checking…</div>
+    <p class="note" id="verifyNote"></p>
+  </div>
+
+  <div class="card hidden" id="statsCard">
+    <div class="label">Your check-in stats</div>
+    <div class="stats">
+      <div class="stat"><div class="num" id="statTotal">–</div><div class="cap">Total check-ins</div></div>
+      <div class="stat"><div class="num" id="statStreak">–</div><div class="cap">Current streak (days)</div></div>
+      <div class="stat"><div class="num" id="statPoints">–</div><div class="cap">Points</div></div>
+      <div class="stat"><div class="num" id="statBadge">–</div><div class="cap">Soulbound badge</div></div>
+    </div>
+    <div style="height:14px"></div>
+    <button id="checkInBtn">Check In Today</button>
+    <button class="secondary" id="refreshBtn">Refresh stats</button>
+    <p class="note">Points: 10 per check-in plus a streak bonus equal to your current
+      streak (capped at 20). Your first check-in also mints your non-transferable
+      AgentCheck badge.</p>
+  </div>
+
+  <div class="card">
+    <p class="note" style="margin:0">
+      AgentCheck is free to use. Check-in is an on-chain transaction and costs a
+      small amount of BNB gas (network fee), paid to the BNB Chain network — not
+      to AgentCheck. Points and badges have no monetary value and cannot be
+      transferred or sold.
+    </p>
+  </div>
+</main>
+<script src="keccak.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
