@@ -1,0 +1,27 @@
+MockRegistry deployed at 0x5dddfce53ee040d9eb21afbc0ae1bb4dbb0ba643
+AgentCheck deployed at 0x5f8bd49cd9f0cb2bd5bb9d4320dfe9b61023249d
+AgentCheck measured deployment gas (local @ethereumjs/vm, Cancun): 940728
+PASS  isAgentIdHolder(holder) == true
+PASS  isAgentIdHolder(stranger) == false
+PASS  non-holder checkIn() reverts
+PASS    revert is NotAgentIdHolder  — 0xe89f8179
+PASS  holder checkIn() succeeds (day D)
+PASS    CheckedIn event emitted
+PASS    BadgeMinted event emitted
+PASS  stats after 1st check-in: total=1, streak=1, points=11, lastDay=D, badge #1  — {"total":"1","streak":"1","points":"11","lastDay":"20000","hasBadge":true,"badgeId":"1"}
+PASS  badge ownerOf(1) == holder
+PASS  totalAgents() == 1
+PASS  totalCheckIns() == 1
+PASS  tokenURI(1) decodes to valid JSON metadata  — data:application/json;base64,eyJuYW1lIjoiQWdlbnRDaGVjayBCYWR...
+PASS  second checkIn same day reverts
+PASS    revert is AlreadyCheckedInToday  — 0xaf1759c5
+PASS  next-day checkIn() succeeds
+PASS  stats after day D+1: total=2, streak=2, points=23  — total=2 streak=2 points=23
+PASS  checkIn after skipping a day succeeds
+PASS  stats after skip: total=3, streak reset to 1, points=34  — total=3 streak=1 points=34
+PASS  badge transferFrom reverts
+PASS    revert is Soulbound  — 0xa4420a95
+PASS  badge approve reverts with Soulbound
+PASS  badge balanceOf(holder) == 1
+
+22/22 checks passed
