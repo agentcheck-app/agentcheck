@@ -1,0 +1,12 @@
+{
+  "txHash": "0xce0ea5808b256b5d96db48840b2f2bd9f76b0d2efacb0201a075a7362a55bb03",
+  "from": "0xb1f2dcab07dec6c691ee5da565593018b44e9333",
+  "nonce": "0",
+  "gasPrice": "55000000",
+  "gasLimit": "1100000",
+  "sentAt": "2026-11-18T15:21:17.300Z",
+  "contractAddress": "0x3bce1dabf3a78041c0b37d7e28e448bdf6bd5192",
+  "status": "0x1",
+  "gasUsed": "1069532",
+  "blockNumber": "134334440"
+}

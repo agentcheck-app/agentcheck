@@ -1,0 +1,4 @@
+{
+  "measuredDeploymentGas_localEVM": "940728",
+  "method": "Measured by actually executing the CREATE (constructor + code deposit) on a local in-memory @ethereumjs/vm (Cancun hardfork). This is a local measurement, not a BSC mainnet quote; real deployment gas will be close but can differ slightly with network conditions."
+}

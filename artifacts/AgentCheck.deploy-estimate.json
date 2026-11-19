@@ -1,0 +1,11 @@
+{
+  "creationBytecodeBytes": 4762,
+  "deployedBytecodeBytes": 4587,
+  "estimatedDeploymentGas_sizeBased": 1027544,
+  "method": "size-based formula: 21000 + 32000 + 12/byte creation code + 200/byte deployed code. A measured local-EVM estimate from the test run is recorded separately in test results (test-output.txt) and supersedes this rough figure.",
+  "compiledWith": "solc 0.8.26+commit.8a97fa7a.Emscripten.clang",
+  "optimizer": {
+    "enabled": true,
+    "runs": 200
+  }
+}
